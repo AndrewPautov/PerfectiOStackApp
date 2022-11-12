@@ -8,8 +8,6 @@
 import UIKit
 
 class DispatchQueueController: UIViewController {
-
-    
     init() {
         super.init(nibName: nil, bundle: nil)
         title = "DispatchQueue"
@@ -22,7 +20,13 @@ class DispatchQueueController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemCyan
-        // Do any additional setup after loading the view.
+        closeController()
+    }
+    
+    private func closeController() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.view.backgroundColor = .systemRed
+        }
     }
     
 
